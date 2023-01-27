@@ -31,6 +31,21 @@ resource "google_compute_instance" "default" {
 
 }
 
+#Security Group/Firewall
+resource "google_compute_firewall" "ssh" {
+  name = "torq-runner-sg"
+  allow {
+    ports    = ["22"]
+    protocol = "tcp"
+  }
+  direction     = "INGRESS"
+  network       = var.virtual_network
+  priority      = 1000
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["ssh"]
+}
+
+
 #Userdata Template
 data "template_file" "userdata" {
   template = "${file("runner_host_userdata.sh")}"
