@@ -9,6 +9,7 @@ provider "aws" {
 resource "aws_instance" "torq-runner" {
   count = var.instance_count
   ami = "ami-0b5eea76982371e91" #Amazon Linux 2 x86
+  associate_public_ip_address = true #Assign a public elastic ip address
   key_name = var.ssh_keypair
   instance_type = var.instance_size
   subnet_id = var.virtual_subnet
