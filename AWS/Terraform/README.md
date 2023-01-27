@@ -8,7 +8,7 @@ Torq Runner Host Automated Deployment
   <img src="https://github.com/joe-at-torq/Torq-Runner-Automation-Templates/blob/main/misc/runner_config.png?raw=true">
 </p>
 
-- Modify the variable data inside of the variables.tf file including your Torq runner url.
+- Modify the variable data inside of the variables.tf file including your Torq runner url. By default the host vm will be built with a public ip address. To disable this, make the change in the main.tf file.
 - Execute the Terraform deployment by running the following commands:
   -  terraform init
   -  terraform apply
